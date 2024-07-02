@@ -18,7 +18,7 @@ cd automting-mlsa-viewership
 ```
  Firstly, Change the path according to your path of geckodriver(it should be executable):
  
-> In line 15 replace the path with your 
+> In line 15 replace the path with your path
 
  Now, Lets start an virtual enviornment in your system `venv`(Optional but recommended):
 ```
