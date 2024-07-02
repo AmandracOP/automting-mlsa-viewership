@@ -1,7 +1,7 @@
 ## A simple bot to increase website views
 **Getting Started:**
 
-`Prerquisites:`
+`prerequisite:`
 
 1. Install geckodriver for Firefox. [Download here](https://github.com/mozilla/geckodriver/releases)
 2. Install Git in your System.
