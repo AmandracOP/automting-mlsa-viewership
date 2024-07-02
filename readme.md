@@ -13,7 +13,7 @@ Now, let's start using this Bot in your system as well.
 Enter the following command in your terminal:
 ```
 git clone https://github.com/AmandracOP/automting-mlsa-viewership.git
-cd automating-mlsa-viewership
+cd automting-mlsa-viewership
 ```
  
  Now, Lets start an virtual enviornment in your system `venv`:
