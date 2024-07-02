@@ -2,9 +2,10 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.firefox.service import Service
 from selenium.webdriver.firefox.options import Options as FirefoxOptions
+from selenium.webdriver.common.action_chains import ActionChains
 import time
-
-# Function to perform actions on a website
+import random
+# Function defination
 def course_sites(url):
     # Set Firefox options
     firefox_options = FirefoxOptions()
@@ -13,45 +14,57 @@ def course_sites(url):
     # Path to GeckoDriver executable
     webdriver_path = '/usr/bin/geckodriver'
 
-    # Initialize the GeckoDriver service
+    # Initialize GeckoDriver service
     service = Service(executable_path=webdriver_path)
 
-    # Initialize the WebDriver
+    # Initialize WebDriver
     driver = webdriver.Firefox(service=service, options=firefox_options)
 
     try:
-        # Open the URL from the function defined3   
+        # Open urls
         driver.get(url)
-        time.sleep(2)  # Wait for 
-        
-        # Scroll down the page
-        driver.execute_script("window.scrollTo(0, 500);")
-        time.sleep(2)  # Wait for 
-        
-        # Click on a button
-        button = driver.find_element(By.ID, "start-unit")
+        time.sleep(random.uniform(4, 6))  
+
+        scroll_position = random.randint(200, 900)
+        driver.execute_script(f"window.scrollTo(0, {scroll_position});")
+        time.sleep(random.uniform(2, 4))  
+
+        button = driver.find_element(By.ID, "start-unit") #button by id
+        actions = ActionChains(driver)
+        actions.move_to_element(button).perform()  
+        time.sleep(random.uniform(2, 4))  
         button.click()
-        time.sleep(3)  # Wait for 
-        
-        # Go back to the site
-        driver.get(url)
-        time.sleep(2)  # Wait for 
-        
-        # Click some more buttons
-        another_button = driver.find_element(By.CLASS_NAME, "button button-clear text-decoration-none button-sm unit-expander")
+
+        time.sleep(random.uniform(3, 5))  
+        # Perform scrolling up and down multiple times
+        num_scrolls = random.randint(2, 3)
+        for _ in range(num_scrolls):
+            # Scroll down to the bottom of the page
+            driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+            time.sleep(random.uniform(2, 4))  # Random wait 
+
+            # Scroll back up to the top of the page
+            driver.execute_script("window.scrollTo(0, 0);")
+            time.sleep(random.uniform(2, 4))  # Random wait 
+        another_button = driver.find_element(By.CLASS_NAME, "button button-clear text-decoration-none button-sm unit-expander") # button by class name
+        actions.move_to_element(another_button).perform()  
+        time.sleep(random.uniform(4, 8))  
         another_button.click()
-        time.sleep(2)  # Wait for 
-        
-        # Example of scrolling again
+
         driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
-        time.sleep(1)  # Wait for 
-        
+        time.sleep(random.uniform(2, 5))  
+
+    except Exception as e:
+        print(f"Error processing {url}: {str(e)}")
+
     finally:
-        # Close browser
+        # Close browser session
         driver.quit()
         driver.service.stop()
+
+
 # calling the function
-#add ambassador ID at the end of the url- ?wt.mc_id=studentamb_386718
+#adding ambassador ID at the end of the url- ?wt.mc_id=studentamb_386718
 urls= ["https://learn.microsoft.com/en-us/training/paths/sql-server-2017-on-linux/?wt.mc_id=studentamb_386718",
     "https://learn.microsoft.com/en-us/training/paths/ai-education/?wt.mc_id=studentamb_386718",
     "https://learn.microsoft.com/en-us/training/paths/microsoft-azure-fundamentals-describe-cloud-concepts/?wt.mc_id=studentamb_386718",
