@@ -22,7 +22,7 @@ cd automting-mlsa-viewership
 
  Now, Lets start an virtual enviornment in your system `venv`(Optional but recommended):
 ```
-python -m venv venv
+python -m venv navenv
 source venv/bin/activate  # For Linux/macOS
 venv\\Scripts\\activate.bat  # For Windows
 ```
