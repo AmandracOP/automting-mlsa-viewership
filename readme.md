@@ -16,7 +16,7 @@ git clone https://github.com/AmandracOP/automting-mlsa-viewership.git
 cd automting-mlsa-viewership
 ```
  
- Now, Lets start an virtual enviornment in your system `venv`:
+ Now, Lets start an virtual enviornment in your system `venv`(Optional but recommended):
 ```
 python -m venv venv
 source venv/bin/activate  # For Linux/macOS
